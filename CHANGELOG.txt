@@ -1,0 +1,191 @@
+# CHANGELOG.txt
+#
+# Copyright (C) 2012-2024	Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+** Year 2024
+
+24.1.0 	The Spring framework was upgraded to quite a recent version.  Java 20 is now fully
+		supported. There's a root POM file from which the other projects inherit.  The testing
+		system has been greatly improved. The GUI of the inquirer has been greatly improved.  
+		The logging system has been improved.  The configuration system has been improved.
+		There's now a simple mechanism to endow views with titles.  The i18n resources are now 
+		reloaded automatically, which simplifies hot changes.  Views are now transformed into 
+		HTML files that are quite well formatted.  The features that are served by the framework
+		now have regular endpoints of the form "role/object/command". Better support for regression 
+		testing through helpers MomentHelper and RandomHelper. Application E2E testing is far more 
+		resilient against test cases that fail inside a test class with several of them. Heavy 
+		refactoring was performed regarding	class-member visibility, utility methods, and other 
+		code-quality and code-maintenance improvements.  Acme's own features can now be overloaded 
+		with new commands. Database annotations like @Table or @Index now support using attribute 
+		names instead of column names (excepting navigation attributes, which still require the 
+		"_id" suffix :/. The work-area data model has undergone a heavy refactoring that makes it 
+		far more efficient and simple to understand.  There's a new companion script called 
+		"create-launchers" that simplifies creating launchers for all of your depots, projects, 
+		and starters.  The "clean-workspace" companion script now cleans your Eclipse 
+		installation, as well.    
+
+** Year 2023
+
+23.1.0	The framework has undergone a heavy refactoring and has got many improvements.
+	    The Abstract base classes have been re-worked from top to toe to facilitate dealing 
+		with most common situations in simpler ways. There's a brand new data model available
+		that builds on work areas that are composed of datasets. The database populator was 
+		re-worked from top to toe. The database inquirer has got minor improvements to facilitate
+		reading the JPQL results. The testing framework was re-worked so that it can deal 
+		with time-aware and some hacking tests more easily. The JSP tags have been improved and 
+		some redundant ones have been removed. Minor fixes to many components. 	JSP views can 
+		finally be changed and reloaded at runtime, which eases debugging a lot. Unicode is now 
+		fully supported when dealing with text data.
+		
+23.2.0	Minor fixes. Not distributed to the students.
+
+23.3.0	The references to the Acme Tag Library's been re-worked in an attempt to work some infamous 
+		errors and warnings around when loading the projects that use the Acme Framework.  The 
+		debug panel shows some additional data that may be useful for debugging. During development 
+		and testing, the servicing time takes exactly the number of seconds specified in 
+		"profile.properties".  Minor fixes regarding the JSON-like parser used to de/serialise 
+		datatype instances from/in population files. 
+
+23.3.1	Minor fixes to help testing time-aware features more easily. It's strongly encouraged that 
+		you should change the value of property "acme.runtime.servicing-time" in file 
+		"profile.properties" to zero; that will facilitate testing time-aware features. Fixed
+		serious bug that caused JPA flush dirty objects at unexpected moments, which resulted in 
+		unexpected exceptions when trying to update objects with errors.  Fixed minor problem when
+		requesting a feature with a trailing slash.
+
+23.4.0	Fixed a few Unicode issues. Improved implementation of "redirect" views.
+
+23.4.1	There was a problem to test listings with more that 35 items, which has been fixed.   
+
+23.5.0	Fixes regarding using multiple input selects in the same form. Fixes regarding getting data 
+		from the request data work area.
+		
+23.5.1	A bug that prevents dealing with foreign null keys was fixed. There's a handy script called 
+ 		"create-launchers" that creates a launcher for every depot, project, and starter in your 
+ 		workspace.  Distributed to some beta-testing students only.
+
+** Year 2022
+
+22.0	The framework is finally a standalone component. The populator has been greatly enhanced. 
+		The logging system has been greatly enhanced. Many UI usability improvements. 
+		Support for cloud deployment was removed due to the many inconvenients induced 
+		by a few students. 
+		
+22.1	Trivial bug fixes.  The structure of the starters that accompany the framework has 
+		been homogenised.
+		
+22.2	Minor corrections regarding printing the results of the inquirer.  Minor corrections to the
+		testing framework to prevent the infamous "Element did not stale" exception and to facilitate
+		loading performance logs into Excel. Minor changes to adapt the starters to the new version 
+		of the framework. Minor corrections to support VisualVM instrumentation for profiling purposes.
+		
+22.3	Minor bug fixes and improvements.  The framework provides a new role called "Any", which 
+		simplifies writing features that involve all of the principals.
+		
+22.4	Minor bug fixes and improvements.  The efficiency of the populator was improved. The 
+	    efficiency of some methods in class "AbstractTest" has been greatly improved. (This was
+	    a short-lived version.)   
+
+22.5	Minor bug regarding UTC time was fixed.  Improved support to test temporal constraints.
+
+22.5.1	This version was released through the forum as a quick fix for students who had trouble with 
+		attributes whose names have forbidden prefixes ("set", "get", and "is").  The fix will be  
+		included in the following major release.  Thus, students who do not have any attributes 
+		with forbidden prefixes should wait for the next major update.
+		
+22.5.2	This version was released through the forum as a quick fix for students who had trouble when 
+        they attempted to unbind an attribute called "item" and there was a validation or a binding 
+        error. The fix will be included in the following major release.  Thus, students who do not 
+        unbind any attribute called "item" should wait for the next major update.
+
+22.6	Minor changes to enhance the logs.  Minor changes to enhance Java vs. Kebap name conventions. 
+        The database populator is much faster when testing since it now just cleans the schema 
+        (i.e., no schema rebuilt is required).  The code was cleaned up to remove many useless 
+        annotations.  A bug with some missing thread-local variables was fixed in controllers. 
+        Default validation messages can now be re-defined.  Fixed bug regarding making some input 
+        boxes read-only.
+        
+22.7 	Minor changes to the populator that reduce the time required to report errors in the 
+		population files.  Fixed error with optional relations.
+		
+22.8	Minor improvements to the populator to detect more errors in sample data. Corrected minor bug
+		when displaying errors regarding repetitive patterns. Misconfigurations in Firefox or 
+		Geckodriver are now properly reported.  Fixed bug when checking that global errors exists in a
+		form during testing. Minor improvements to input checkboxes.
+		
+** Year 2021
+
+21.0	The versioning scheme was changed. General improvements not released to the public.
+21.1	Many improvements to profiles, population, launcher, error handling, and testing support.
+21.2	Fixed minor bugs with tags acme:form-select and acme:form-checkbox.
+21.3	Fixed some bugs that prevented the populator from working well when deployed to Clever Cloud.
+21.4	The testing framework has been greatly simplified and enhanced.
+21.5	Minor corrections and improvements to the testing framework, which now supports performance 
+		testing.
+21.6	Minor corrections to the performance testing framework.
+21.7	Minor corrections that were not released to the public.
+
+** Year 2020
+
+2.19.0	A brand-new framework is available!
+2.19.1	Fixed many minor problems with Clever-Cloud deployment.
+2.19.2	Fixed problem when signing out in a Clever-Cloud deployment.
+2.19.3	Fixed bug: the delete workflow did not invoke the validate method.
+2.19.4	Fixed small bugs in custom tags.
+2.19.5	Added support for datatypes in the user space and PERFORM workflows. 
+2.19.6	Added basic support for JUnit testing.
+2.19.7	Added support for HTTPS when deploying to Clever Cloud.
+2.19.8	Fixed minor problems with LocalisedDoubleFormatter, ConversionConfiguration, and acme:message.
+2.19.9	Fixed some problems with conversion service to prevent default non-localised converters and minor 
+		index reporting problem with database populator.  
+2.19.a	Fixed minor problem to allow for testing via JUnit.
+2.19.b	Improved database connection strings. Apps now accept a "debug" param to show debugging info
+		even if the request did not originate from localhost.
+
+** Year 2019
+
+2.18.0	Many improvements to the populator to find the topological order to save objects.
+2.18.1	Fixed minor bugs with the input tags.
+2.18.2	Internal version not distributed to the students.
+2.18.3	The framework includes some basic support for functional testing building on mocks.
+
+** Year 2018
+
+2.17.0	Many improvements to validation and error reporting during validation.
+2.17.1	Fixed some bugs regarding functional testing.
+
+** Year 2017
+
+5.0		Most configuration files are generated automatically now.
+5.1		First attempt to create a full testing framework.
+
+** Year 2016
+
+4.0		The populator's been enhanced. Support to deploy to Clever Cloud. 
+4.1		Fixed minor bugs.
+
+** Year 2015
+
+3.0		Fixed many bugs.
+3.1		Added support for custom tags. 
+
+** Year 2014
+
+2.0		Added an automatic populator.
+2.1		The populator now validates the entities automatically.
+
+** Year 2013
+
+1.0		Added support for explicit transaction management.
+1.1		Apache Tiles was integrated into the framework.  
+
+** Year 2012
+
+0.0		A new WIS development framework is out!
+
